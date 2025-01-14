@@ -1,0 +1,7 @@
+fqdn          : byteford.co.uk
+advertise_addr: "{{inventory_hostname}}"
+acl_enabled   : false
+host_volumes: 
+  - name      : webmin
+    path      : "/opt/artifacts/webmin"
+    read_only : false

@@ -1,0 +1,15 @@
+---
+all:
+  vars:
+    ansible_user: james_sandford_blinkbyte_co_uk
+  hosts:
+    192.168.1.183:
+      nomad_node_pool: default
+nomad:
+  children:
+    nomad_client:
+      hosts:
+        192.168.1.183:
+    nomad_server:
+      hosts:
+        192.168.1.183:

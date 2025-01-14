@@ -1,0 +1,4 @@
+---
+collections:
+  - type: subdirs
+    source: ../../devcastops/dco-nomad-ansible

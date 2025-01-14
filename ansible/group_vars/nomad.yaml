@@ -1,0 +1,5 @@
+nomad_version       : 1.8.3
+nomad_wipe_data     : false
+nomad_user          : nomad
+nomad_group         : nomad
+nomad_client_run_as : root

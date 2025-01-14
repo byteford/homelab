@@ -1,0 +1,33 @@
+---
+
+- name: print out hosts architectures
+  hosts: all
+  gather_facts: True
+  tasks:
+  - debug: 
+      var: ansible_architecture
+
+- name: nomad_base
+  hosts: nomad
+  become: true
+  gather_facts: True
+  roles:
+    - dco.nomad.base
+
+- name: nomad_server
+  hosts: nomad_server
+  become: true
+  vars:
+    nomad_addr: http://192.168.1.183:4646
+    secret_app: nomad
+    organization_id: ed73fdd7-0a00-4cb0-b481-7d18b0b49ac1
+    project_id: df97fa9e-75f7-4624-aa89-1cd71d84bcdf
+  roles:
+    - role: dco.nomad.server
+    - role: dco.nomad.bootstrap
+
+- name: nomad_client
+  hosts: nomad_client
+  become: true
+  roles:
+    - role: dco.nomad.client
